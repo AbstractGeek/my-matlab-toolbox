@@ -65,8 +65,16 @@ if iscellstr(inFiles)==0
     inFiles = {inFiles};
 end
 
-% 
+% Get length of inFiles and check if the downsam matrix matches the length
 N = length(inFiles);
+if length(downsam) == 1
+    downsam = downsam  .* ones(N,1);
+else
+    if length(downsam) ~= N
+        error('Downsample matrix does not match the number of video inputs provided');
+    end
+end
+
 dispstat('Starting','init');
 % Begin combining and converting cineFiles to aviFiles
 for i=1:N
@@ -75,7 +83,7 @@ for i=1:N
     % Open the cine file
     f1=fopen(currFile);
     % Begin copying frames
-    for frameNum=1:downsam:info.NumFrames
+    for frameNum=1:downsam(i):info.NumFrames
         % display progress
         dispstat(sprintf('[File %d of %d]:Processing %d frame of %d frames',...
             i,N,frameNum,info.NumFrames))
