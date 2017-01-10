@@ -75,7 +75,7 @@ else
     end
 end
 
-dispstat('Starting','init');
+%dispstat('Starting','init');
 % Begin combining and converting cineFiles to aviFiles
 for i=1:N
     currFile = inFiles{i};
@@ -85,8 +85,8 @@ for i=1:N
     % Begin copying frames
     for frameNum=1:downsam(i):info.NumFrames
         % display progress
-        dispstat(sprintf('[File %d of %d]:Processing %d frame of %d frames',...
-            i,N,frameNum,info.NumFrames))
+        %dispstat(sprintf('[File %d of %d]:Processing %d frame of %d frames',...
+        %    i,N,frameNum,info.NumFrames))
         % Get the position of the frame
         offset=info.headerPad+8*info.NumFrames+8*frameNum+(frameNum-1)* ...
             (info.Height*info.Width*info.bitDepth/8);
