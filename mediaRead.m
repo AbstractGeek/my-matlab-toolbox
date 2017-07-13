@@ -1,4 +1,4 @@
-function [img, videohandle] = mediaRead(videohandle,framenum)
+function [imgs, videohandles] = mediaRead(videohandles,framenum)
 % 
 % 
 % 
@@ -6,6 +6,15 @@ function [img, videohandle] = mediaRead(videohandle,framenum)
 %
 % Last Modified On 3 August 2016
 % Author: Dinesh Natesan
+
+if ~iscell(videohandles)
+    videohandles = {videohandles};
+end
+imgs = cell(length(videohandles),1);
+
+for vid=1:length(videohandles)
+    
+    videohandle = videohandles{vid};
 
 switch videohandle.mode
     
@@ -77,6 +86,12 @@ switch videohandle.mode
     
 end
 
+imgs{vid} = img;
 
+end
+
+if length(videohandles) == 1
+    imgs = imgs{1};
+end
 
 end

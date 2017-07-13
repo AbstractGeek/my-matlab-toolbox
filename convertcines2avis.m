@@ -1,6 +1,10 @@
 function [] = convertcines2avis(infolder,varargin)
-% function [] = convertcines2avis(inFolder,varargin)
+% function [] = convertcines2avis(infolder, recursive=yes, downsample=1,...
+% quality=100, enhancecontrast=no, enhancegamma=no)
 %
+% Converts all cines in the infolder (recursively, if the flag is set) to
+% avi files. Additional inputs control the conversion from cine to avi.
+% 
 % Dinesh Natesan, 10th Sept 2017
 
 %% Handle inputs
