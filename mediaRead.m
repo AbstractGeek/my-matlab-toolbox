@@ -9,6 +9,9 @@ function [imgs, videohandles] = mediaRead(videohandles,framenum)
 
 if ~iscell(videohandles)
     videohandles = {videohandles};
+    cellflag = false;
+else
+    cellflag = true;
 end
 imgs = cell(length(videohandles),1);
 
@@ -90,8 +93,9 @@ imgs{vid} = img;
 
 end
 
-if length(videohandles) == 1
+if (length(videohandles) == 1) && ~cellflag
     imgs = imgs{1};
+    videohandles = videohandles{1};
 end
 
 end
