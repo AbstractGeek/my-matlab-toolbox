@@ -1,4 +1,5 @@
 % A simple script to create frames with numberings on them
+% Dinesh Natesan
 
 %% Write videocleanup = onCleanup(@() close(vid));
 outfile = 'numbered.avi';

@@ -2,6 +2,7 @@ function [fsig,f]=FourierTransform(sig,Fs,n)
 % function [fsig,f]=FourierTransform(sig,Fs,n)
 % Inputs: Signal, Sampling rate, n-point DFT (Optional)
 % Outputs: fsig, f
+% Dinesh Natesan 
 
 % Find n
 if nargin < 2
